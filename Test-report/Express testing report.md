@@ -1,73 +1,63 @@
-**Тест-отчет по результатам экспресс-тестирования функционала и верстки сайта BeeMarket**
+**Test Report: Results of Express Functional and Layout Testing for BeeMarket Website**
 
 ---
 
-### **Общие сведения:**
+### **General Information:**
 
-* **Цель тестирования:** Провести оперативное тестирование основных функций и верстки сайта на основных браузерах и разрешениях для десктопных и мобильных устройств.  
-* **Дата начала:**  12.11.2024  
-* **Дата окончания:** 16.11.2024   
-* **Окружение:**  
-  * **Сайт:**   
-  * **Браузеры:** Chrome, Firefox, Safari, Edge (десктоп и мобильные устройства)  
-  * **Разрешения:**  
-    * Десктоп: 1920x1080, 1366x768  
-    * Мобильные: 375x667 (IOS), 360x640 (стандарт для Android)
+* **Testing Objective:** Conduct rapid testing of core functionalities and layout across main browsers and resolutions for desktop and mobile devices.
+* **Start Date:** 12.11.2024
+* **End Date:** 16.11.2024
+* **Environment:**
+  * **Website:**
+  * **Browsers:** Chrome, Firefox, Safari, Edge (desktop and mobile)
+  * **Resolutions:**
+    * Desktop: 1920x1080, 1366x768
+    * Mobile: 375x667 (iOS), 360x640 (standard Android)
 
-### **Резюме:**
+### **Summary:**
 
-Тестирование выявило несколько критических, средних и низкоприоритетных багов, связанных как с функциональностью сайта, так и с версткой. Основные функциональные области, такие как авторизация, поиск, фильтры, добавление товаров в корзину и избранное, оформление заказа и отображение товаров в каталоге, работают, но некоторые ключевые ошибки нуждаются в исправлении для обеспечения лучшего пользовательского опыта.
+Testing identified several critical, medium, and low-priority issues affecting website functionality and layout. Key functional areas such as authorization, search, filters, adding products to cart and favorites, order placement, and catalog display are operational, but specific key issues require attention to enhance user experience.
 
-### **Основные обнаруженные баги:**
+### **Main Identified Issues:**
 
-| ID | Описание проблемы | Статус | Приоритет |
+| ID | Issue Description | Status | Priority |
 | ----- | ----- | ----- | ----- |
-| FUNC \- 001 | Не приходит код подтверждения для авторизации на номера от Uzmobile и Mobiuz | Открыт | Высокий |
-| FUNC \- 002 | Пустая страница заказа при переходе из истории заказов после оформления | Открыт | Высокий |
-| FUNC \- 004 | Доступ к персональным данным других заказов через URL | Открыт | Критический |
-| FUNC \- 009 | Сброс товаров из избранного и сравнения после обновления страницы у неавторизованного пользователя | Открыт | Высокий |
-| FUNC \- 014 | Кнопки переключения вида каталога не работают на мобильной версии | Открыт | Средний |
-| UI-02 | Некорректное выравнивание характеристик при сравнении товаров на странице сравнения | Открыт | Средний |
-| UI-04 | Неполное отображение итоговой суммы и суммы к оплате на странице заказа при определённых типах оплаты | Открыт | Средний |
+| FUNC-001 | Authorization confirmation code not received by Uzmobile and Mobiuz numbers | Open | High |
+| FUNC-002 | Empty order page when accessing from order history after completion | Open | High |
+| FUNC-004 | Unauthorized access to other users' personal order data via URL | Open | Critical |
+| FUNC-009 | Favorites and comparison reset after page refresh for unauthorized users | Open | High |
+| FUNC-014 | Catalog view toggle buttons not functional on mobile | Open | Medium |
+| UI-02 | Incorrect alignment of product specifications on comparison page | Open | Medium |
+| UI-04 | Partial display of total amount and payable amount on the order page for certain payment types | Open | Medium |
 
-### **Подробное описание тестирования по основным областям:**
+### **Detailed Testing Description by Main Areas:**
 
-#### **1\. Функциональное тестирование:**
+#### **1. Functional Testing:**
 
-* **Авторизация:** Обнаружены проблемы с получением кода подтверждения для некоторых операторов (Uzmobile и Mobiuz), что затрудняет процесс авторизации.  
-* **Поиск товаров и категорий:** Основная функциональность работает корректно. Проблем не выявлено.  
-* **Фильтры и сортировка товаров:** Сортировка по скидке работает некорректно — товары без скидки отображаются первыми.  
-* **Избранное и корзина:** Обнаружен сброс товаров из избранного после обновления страницы у неавторизованных пользователей.  
-* **Оформление заказа:** Переход к заказу из истории приводит к пустой странице заказа с ошибкой в консоли.  
-* **Кнопки и ссылки на главной странице и страницах категорий:** На пятом баннере кнопка «Купить» неактивна и является частью изображения, что вводит пользователя в заблуждение.  
-* **Сравнение товаров:** Проблемы с отображением характеристик товаров на странице сравнения, особенно при добавлении более двух товаров на мобильных устройствах.
+* **Authorization:** Issues identified with receiving confirmation codes from specific carriers (Uzmobile and Mobiuz), hindering authorization.
+* **Product and Category Search:** Core functionality operating correctly, no issues found.
+* **Product Filters and Sorting:** Sorting by discount incorrectly places non-discounted products first.
+* **Favorites and Cart:** Favorites reset after page refresh for unauthorized users.
+* **Order Placement:** Accessing orders from history results in an empty page with console errors.
+* **Buttons and Links (Homepage and Category Pages):** Fifth banner 'Buy' button inactive and part of the image, causing user confusion.
+* **Product Comparison:** Issues displaying product specifications, especially with more than two products on mobile devices.
 
-#### **2\. Тестирование верстки:**
+#### **2. Layout Testing:**
 
-* **Адаптивность дизайна:** Обнаружены баги с отображением кнопок и характеристик на мобильных устройствах.  
-* **Кроссбраузерная проверка:** Обнаружены мелкие проблемы, такие как отсутствие анимации и некорректное поведение элементов, которые ухудшают UX.
+* **Responsive Design:** Issues identified with button and specification display on mobile devices.
+* **Cross-browser Check:** Minor problems like missing animations and incorrect element behavior impacting user experience.
 
-#### **3\. Кроссбраузерное тестирование:**
+#### **3. Cross-browser Testing:**
 
-* **Chrome, Firefox, Safari, Edge:** В основном все функции работают, но проблемы с версткой кнопок и других элементов наблюдаются на мобильных версиях.  
-* **Мобильные устройства:** Кнопки переключения вида каталога и отсутствие горизонтального скролла для характеристик товаров на странице сравнения — основные проблемы.
+* **Chrome, Firefox, Safari, Edge:** Functionalities mostly stable; layout issues with buttons and elements noticed on mobile versions.
+* **Mobile Devices:** Catalog view toggle buttons and absence of horizontal scroll for product specifications on the comparison page identified as main issues.
 
-### **Общий статус тестирования:**
+### **Overall Testing Status:**
 
-Из 21 обнаруженных багов:
+Out of 21 bugs identified:
 
-* **Критические баги:** 1 (доступ к персональным данным через URL)  
-* **Высокие приоритеты:** 3 (код подтверждения, пустая страница заказа, сброс избранного)  
-* **Средние приоритеты:** 8 (нерабочие кнопки переключения вида каталога, проблемы с характеристиками на странице сравнения, неверное выравнивание и т.д.)  
-* **Низкие приоритеты:** Остальные баги, включая мелкие проблемы с версткой и анимацией.
-
-### **Рекомендации:**
-
-1. **Функциональные проблемы:** Исправить критические проблемы с доступом к персональным данным через URL, исправить сброс товаров в избранном, проблемы с получением кода подтверждения и с отображением страницы заказа.  
-2. **Проблемы верстки:** Обновить верстку для корректного отображения кнопок, выравнивания характеристик на странице сравнения и работы с мобильными устройствами.  
-3. **Дополнительное тестирование после исправлений:** Провести ретест всех функциональных и версточных изменений после фиксов для обеспечения корректности исправлений.
-
-### **Заключение:**
-
-Тестирование выявило несколько значительных багов, влияющих на пользовательский опыт и безопасность данных. Устранение этих проблем позволит улучшить работу сайта и повысить удобство использования для конечных пользователей.
+* **Critical:** 1 (unauthorized data access via URL)
+* **High Priority:** 3 (confirmation code issue, empty order page, favorites reset)
+* **Medium Priority:** 8 (non-functional catalog view buttons, comparison page specification issues, alignment issues, etc.)
+* **Low Priority:** Remaining bugs, including minor layout and animation problems
 

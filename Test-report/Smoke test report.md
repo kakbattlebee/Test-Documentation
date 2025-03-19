@@ -1,48 +1,131 @@
-### **Тестовый отчет о смоук-тестировании после релиза**
+### 📝 Post-Release Website Testing Plan
 
-**Дата тестирования:** 12.03.2025  
- **Проект:** 
+#### 1️⃣ Introduction
 
-#### **1\. Цель тестирования**
+**Testing Objective:**  
+Verify core functional and non-functional capabilities of the website post-release, ensuring operability, security, and performance.
 
-Проверить работоспособность основных функций системы после релиза, убедиться в отсутствии критических ошибок, влияющих на пользовательский опыт.
+**Testing Scope:**
 
-#### **2\. Охват тестирования**
+* Authorization and registration
+* Ticket search
+* Tariff loading
+* Checkout and payment
+* Notification sending
+* UI/UX
+* Security
+* Performance
 
-Проверке подверглись следующие основные модули:
+---
 
-* Аутентификация  
-* Поиск билетов  
-* Отображение списка предложений (офферов)  
-* Отображение тарифов  
-* Форма оформления заказа  
-* Валидация полей  
-* Отображение и обработка ошибок
+#### 2️⃣ Testing Strategy
 
-#### **3\. Основные результаты тестирования**
+**Testing Methodologies:**
 
-| № | Название теста | Статус | Комментарий |
-| ----- | ----- | ----- | ----- |
-| 1 | Аутентификация | ❌ Провалено | Блокирующие ошибки при регистрации и логине без пароля |
-| 2 | Поиск билетов с разными параметрами | ✅ Успешно | Поиск работает корректно |
-| 3 | Отображение списка предложений (офферов) | ⚠️ Частично | Несовпадение некоторых офферов на новом и старом сайте По запросу первым классом приходят офферы и от эконома (На старом сайте тоже так) |
-| 4 | Отображение тарифов | ❌ Провалено | Модельное окно не загружается и запрос не уходит |
-| 5 | Валидация полей при оформлении заказа | ❌ Провалено | Отсутствует валидация полей формы пассажира на фронте, из\-за чего пользователи могут вводить некорректные данные |
-| 6 | Обработка ошибок при оформлении заказа | ❌ Провалено | В UI отображается общее сообщение, но не указывается конкретная причина ошибки. С бека приходят не понятные для юзера сообщения |
-| 7 | Создание заказа | ❌ Провалено | Ошибка “Can't find suitable document type for passenger”, даже если doc\_type\_id: "PS" указан верно. |
-| 8 | Кросс-браузерное тестирование (Chrome, Firefox, Safari) | ⚠️ Частично | В Safari текста в некоторых местах отображается тускло-серыми вместо черного |
+* **Smoke Testing** – checking key functionalities (login, search, payment)
+* **Regression Testing** – ensuring new changes haven’t disrupted existing functionality
+* **Functional Testing** – validating correct operation of website features
+* **UI/UX Testing** – ensuring correct interface display
+* **Security Testing** – verifying data protection measures
+* **Performance Testing** – load and stress testing
 
-#### **4\. Выводы и рекомендации**
+**Testing Priorities:**
 
-* **Критические ошибки:** Проблемы аутентификации и офферов, невозможность просмотра тарифов, ошибка оформления заказа при корректных данных,  отсутствие валидации данных, некорректное отображение ошибок. Требуют срочного исправления.  
-* **Средние по приоритету ошибки:** Некорректное отображение текста в Safari. Можно исправить в ближайших обновлениях.  
-* **Общие рекомендации:**  
-  * Исправить ошибке при аутентификации  
-  * Исправить тарифы и оформление заказа  
-  * Добавить валидацию полей на фронте  
-  * Исправить отображение ошибок в UI  
-  * Разобраться с разными офферами на новом и старом сайте
+1. **Critical functionality** (authorization, search, payment)
+2. **Filters, tariffs, ticket delivery**
+3. **UI, responsiveness, visual elements**
 
-**Статус релиза:** ❌ **Отклонен (из-за критических багов)**  
- **Рекомендация:** Выпустить исправления и повторить смоук-тестирование перед окончательным развертыванием.
+---
+
+#### 3️⃣ Testing Objects
+
+**Main Modules:**
+
+* Authorization and authentication
+* Ticket search
+* Tariff loading
+* Order checkout
+* Post-payment processing
+* Receipt download
+
+**Associated Systems:**
+
+* Payment gateways (banks, Payze)
+* Databases
+* External APIs (ticket aggregators ETS)
+
+---
+
+#### 4️⃣ Successful Testing Criteria
+
+✅ Authorization functions correctly across all supported devices  
+✅ Ticket search displays relevant results without issues  
+✅ Tariffs load accurately and show correct pricing  
+✅ Payments are processed successfully and correctly  
+✅ No critical errors or vulnerabilities
+
+---
+
+#### 5️⃣ Types of Testing
+
+🔹 **Smoke Testing:**
+
+* Website availability check
+* Verification of core functions (authorization, search, payment)
+
+🔹 **Functional Testing:**
+
+* Correct functioning of filters and sorting in search
+* Ticket pricing verification
+* Successful and unsuccessful payment scenarios
+
+🔹 **UI/UX Testing:**
+
+* Mobile and tablet responsiveness
+* Interface accuracy across browsers
+
+🔹 **Security Testing:**
+
+* HTTPS and data encryption validation
+* Protection testing against SQL injections and XSS attacks
+
+🔹 **Performance Testing:**
+
+* Search results loading under high load
+* Server performance with increased user traffic
+
+---
+
+#### 6️⃣ Testing Tools
+
+🔹 **Postman** – API testing (search, tariffs, payments)  
+🔹 **JMeter** – performance/load testing  
+🔹 **DevTools (Chrome, Firefox)** – UI and responsiveness validation
+
+---
+
+#### 7️⃣ Role Distribution
+
+👨‍💻 **QA Engineer:** Executes test cases, logs defects  
+👩‍💻 **Developer:** Analyzes and fixes identified bugs  
+📢 **Project Manager:** Makes release decisions
+
+---
+
+#### 8️⃣ Anticipated Risks and Mitigation Strategies
+
+| Risk | Mitigation Strategy |
+| ----- | ----- |
+| Critical post-release errors | Conduct smoke testing before deployment |
+| Server load failures | Perform load testing |
+| Payment processing issues | Validate integration with payment gateways |
+| User data leakage | Conduct security testing |
+
+---
+
+#### 9️⃣ Conclusion
+
+If no critical errors are found, the website is considered ready for launch. 🚀 In the case of serious issues, they must be addressed and retested before re-release.
+
+
 
